@@ -1,0 +1,67 @@
+<head>
+<style>
+    .otp-container {
+        display: block;
+        background-color: #f8f9fa; /* Light Gray */
+        border: 2px solid #ffc107; /* Gas Yellow */
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .otp-title {
+        color: #007bff; /* Gas Blue */
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #343a40; /* Dark Charcoal */
+        border-radius: 5px;
+        margin: 0 5px;
+    }
+    .otp-btn {
+        background-color: #ff5722; /* Flame Orange */
+        color: #fff; /* White */
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-top: 15px;
+        display: block;
+        width: 100%;
+    }
+    .otp-btn:hover {
+        background-color: #e64a19; /* Darker Flame Orange */
+    }
+</style>
+</head>
+<body>
+<div id="otpContainer" class="otp-container">
+    <h3 class="otp-title">OTP Verification</h3>
+    <form id="otpForm">
+        <div class="d-flex justify-content-center mb-3">
+            <input type="text" class="otp-input" maxlength="1" required>
+            <input type="text" class="otp-input" maxlength="1" required>
+            <input type="text" class="otp-input" maxlength="1" required>
+            <input type="text" class="otp-input" maxlength="1" required>
+            <input type="text" class="otp-input" maxlength="1" required>
+            <input type="text" class="otp-input" maxlength="1" required>
+        </div>
+        <button type="button" class="otp-btn" id="btnVerifyOTP">Verify OTP</button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Handle form submission
+       
+    });
+</script>
+</body>
+</html>

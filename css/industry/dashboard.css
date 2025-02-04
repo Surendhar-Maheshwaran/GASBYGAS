@@ -1,0 +1,74 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #003366; /* Gas Blue */
+}
+
+header .nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #ffc107; /* Gas Yellow */
+}
+
+/* Section Titles */
+h2, h3 {
+    color: #003366; /* Gas Blue */
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.card-title {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #003366; /* Gas Blue */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #00509e; /* Lighter Blue */
+    transform: scale(1.05);
+}
+
+/* List Group Items */
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Statistics Text */
+.card-text {
+    font-weight: bold;
+}
+.text-primary {
+    color: #00509e !important; /* Lighter Blue */
+}
+.text-warning {
+    color: #ffc107 !important; /* Gas Yellow */
+}
+.text-success {
+    color: #28a745 !important; /* Green */
+}

@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<div id="industryForm" class="col-12 col-md-8 form active">
+    <h3 class="text-center mb-4">Industry Registration</h3>
+    <form>
+        <div class="mb-3">
+            <label for="organizationName" class="form-label">Organization Name</label>
+            <input type="text" id="organizationName" class="form-control" placeholder="Enter organization name" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" id="address" class="form-control" placeholder="Enter address" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Business Registration No</label>
+            <input type="text" id="businessRegNo" class="form-control" placeholder="Enter business registration no" required>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="phoneNo" class="form-label">Phone Number</label>
+                <input type="tel" id="phoneNo" class="form-control" placeholder="Enter phone number" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+            </div>
+            <div class="col-md-6">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="outlet" class="form-label">Outlet</label>
+            <select class="form-select outlet" required>
+                <option value="" disabled selected>Select an outlet</option>
+                <option value="outlet1">Outlet 1</option>
+                <option value="outlet2">Outlet 2</option>
+                <option value="outlet3">Outlet 3</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="certificateImage" name="image" accept="image/*" required>
+        </div>
+        <button type="button" class="btn btn-primary w-100" id="btnRegisterIndustry">Register</button>
+    </form>
+</div>

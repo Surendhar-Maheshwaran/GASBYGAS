@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Bulk Gas</title>
+    <link rel="stylesheet" href="../css/industry/request.css">
+
+</head>
+<body>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Request Bulk Gas</h2>
+        <form id="bulkGasForm" class="bg-light p-4 rounded shadow">
+            <!-- Gas Type -->
+            <div class="mb-3">
+                <label for="gasType" class="form-label">Gas Type</label>
+                <select id="gasType" class="form-select" required>
+                    <option value="">Select Gas Type</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="OutletDropdown" class="form-label">Gas Type</label>
+                <select id="OutletDropdown" class="form-select" required>
+                    <option value="">Select the Preferred Outlet</option>
+                </select>
+            </div>
+
+            <!-- Quantity -->
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity (e.g., cylinders)</label>
+                <input type="number" id="quantity" class="form-control" placeholder="Enter required quantity" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" class="btn btn-primary w-100" id="btnRequest">Submit Request</button>
+        </form>
+    </div>
+</body>
+</html>

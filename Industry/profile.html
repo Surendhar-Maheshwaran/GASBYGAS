@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <link rel="stylesheet" href="../css/industry/profile.css">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Update Organization Details -->
+        <div class="section">
+            <h3 class="mb-4">Update Organization Details</h3>
+            <form id="updateForm">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="orgName" class="form-label">Organization Name</label>
+                        <input type="text" id="orgName" class="form-control" placeholder="Enter organization name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="contact" class="form-label">Contact Information</label>
+                        <input type="text" id="contact" class="form-control" placeholder="Enter phone and email">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea id="address" class="form-control" rows="3" placeholder="Enter address">123 Business Street, City</textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
+            </form>
+        </div>
+        <!-- Past Delivery Records -->
+        <div class="section mt-5">
+            <h3 class="mb-4">Past Delivery Records</h3>
+            <div class="chart-container mb-4">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("deliveryChart").getContext("2d");
+
+        // Example data for past delivery records
+        const deliveryData = {
+            labels: ["January", "February", "March", "April", "May"], // X-axis labels
+            datasets: [
+                {
+                    label: "Domestic Deliveries",
+                    data: [30, 50, 70, 40, 90], // Data points
+                    backgroundColor: "rgba(211, 47, 47, 0.7)", // Bar color
+                    borderColor: "rgba(211, 47, 47, 1)", // Border color
+                    borderWidth: 1,
+                },
+                {
+                    label: "Industrial Deliveries",
+                    data: [20, 40, 60, 80, 100],
+                    backgroundColor: "rgba(25, 118, 210, 0.7)",
+                    borderColor: "rgba(25, 118, 210, 1)",
+                    borderWidth: 1,
+                },
+            ],
+        };
+
+        // Create a bar chart
+        new Chart(ctx, {
+            type: "bar", // Change to 'line' for a line chart
+            data: deliveryData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    tooltip: {
+                        enabled: true,
+                    },
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: "Months",
+                        },
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: "Quantity Delivered",
+                        },
+                    },
+                },
+            },
+        });
+    });
+        function saveChanges() {
+            const orgName = document.getElementById('orgName').value;
+            const contact = document.getElementById('contact').value;
+            const address = document.getElementById('address').value;
+            alert(`Changes saved!\nOrganization: ${orgName}\nContact: ${contact}\nAddress: ${address}`);
+        }
+
+        const requestDetails = {
+            "REQ-001": {
+                gasType: "Domestic",
+                quantity: 100,
+                deliveryDate: "2025-01-18",
+                status: "Approved",
+                message: "Your request for Domestic gas has been approved and scheduled for delivery."
+            },
+            "REQ-002": {
+                gasType: "Industrial",
+                quantity: 50,
+                deliveryDate: "2025-01-20",
+                status: "Pending",
+                message: "Your request for Industrial gas is under review."
+            }
+        };
+
+        function viewDetails(requestId) {
+            const modal = document.getElementById('detailsModal');
+            const modalBody = document.getElementById('modalBody');
+
+            // Fetch and display details
+            const details = requestDetails[requestId];
+            modalBody.innerHTML = `
+                <p><strong>Request ID:</strong> ${requestId}</p>
+                <p><strong>Gas Type:</strong> ${details.gasType}</p>
+                <p><strong>Quantity:</strong> ${details.quantity}</p>
+                <p><strong>Delivery Date:</strong> ${details.deliveryDate}</p>
+                <p><strong>Status:</strong> ${details.status}</p>
+                <p><strong>Message:</strong> ${details.message}</p>
+            `;
+
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailsModal');
+            modal.style.display = "none";
+        }
+ 
+        //Placeholder for rendering a chart
+        //document.getElementById('chartContainer').innerText = 'Chart rendering logic can be added here.';
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlet Manager Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/outletManager/dashboard.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center p-3">
+        <h1>Outlet Manager Dashboard</h1>
+    </header>
+
+    <nav class="d-flex justify-content-center">
+        <a href="#" id="dashboard">Dashboard</a>
+        <a href="#" id="manageRequest">Manage Requests</a>
+        <a href="#" id="payment">Payment</a>
+        <a href="#"id="profile">Profile</a>
+
+    </nav>
+
+    <div class="container">
+        <section id="dashboard" class="active">
+            <h2>Dashboard</h2>
+            <p>Overview of requests and stock availability.</p>
+            <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Total Requests</th>
+                        <th>Pending</th>
+                        <th>Confirmed</th>
+                        <th>Canceled</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboard-table-body">
+                </tbody>
+            </table>
+            <h3>Current Stock Levels</h3>
+            <ul id="stock-levels">
+
+            </ul>
+            <h3>Alerts</h3>
+            <p id="low-stock-alert" class="alert">
+                    <!-- here is the place i want to show the alerts -->
+            </p>
+        </section>
+
+        <section id="manageRequests">
+            <h2>Manage Requests</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Customer Name</th>
+                        <th>Gas Type</th>
+                        <th>Gas Name</th>
+                        <th>Pickup Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="manage-requests-table-body">
+                </tbody>
+            </table>
+        </section>
+        <section class="mb-5" id="paymentSection">
+                <!-- Search Section -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                <input type="text" id="tokenSearch" class="form-control" placeholder="Enter Token" />
+                </div>
+                <div class="col-md-2">
+                <button id="btnSearchToken" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        
+            <!-- Payment Details Table -->
+            <div class="row mb-4">
+                <div class="col">
+                <table class="table table-bordered table-striped" id="paymentTable">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Token</th>
+                        <th>User Name</th>
+                        <th>Gas Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Rows will be dynamically added here -->
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        
+            <!-- Empty Cylinder Collection & Confirm Payment -->
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="emptyCollected">
+                    <label class="form-check-label" for="emptyCollected">
+                    Empty Cylinders Collected
+                    </label>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <button id="btnConfirmPayment" class="btn btn-success">Confirm Payment</button>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="userManagement">
+            <h2>Profile</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">User Name:</label>
+                    <input type="text" id="userName" class="form-control" placeholder="Enter user name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter email">
+                </div>
+                <button type="submit" class="btn btn-custom">Edit Details</button>
+            </form>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../script/OutletManager/dashboard.js"></script>
+</body>
+
+</html>
+

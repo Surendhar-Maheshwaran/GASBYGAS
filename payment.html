@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Interface</title>
+  <link rel="stylesheet" href="css/payment.css">
+  
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-5">Payment Interface</h1>
+
+    <!-- Order Summary -->
+    
+</div>
+
+
+   
+
+  <script>
+     //logout
+    const logoutBtn = document.getElementById('logout-btn');
+    const logoutModal = document.getElementById('logout-modal');
+    const cancelLogout = document.getElementById('cancel-logout');
+    const confirmLogout = document.getElementById('confirm-logout');
+
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        logoutModal.classList.add('active');
+    });
+
+    cancelLogout.addEventListener('click', () => {
+        logoutModal.classList.remove('active');
+    });
+
+    confirmLogout.addEventListener('click', () => {
+        alert('You have been logged out.');
+        window.location.href = 'login.html'; // Replace with the actual login page URL
+    });
+    // Modal control variables
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+    const modalHeader = document.getElementById("modal-header");
+
+    // Payment option buttons
+    document.getElementById("card-payment").addEventListener("click", () => {
+    showModal(
+        "Enter Card Details:",
+        `
+        <input type="text" placeholder="Cardholder Name" required>
+        <input type="text" placeholder="Card Number" maxlength="16" required>
+        <input type="text" placeholder="Expiration Date (MM/YY)" required>
+        <input type="text" placeholder="CVV" maxlength="3" required>
+        `
+    );
+    });
+
+    document.getElementById("digital-wallet").addEventListener("click", () => {
+    showModal(
+        "Digital Wallet Authentication:",
+        `<p>Redirecting to your wallet for authentication...</p>`
+    );
+    });
+
+    document.getElementById("bank-transfer").addEventListener("click", () => {
+    showModal(
+        "Bank Transfer Details:",
+        `
+        <input type="text" placeholder="Account Holder Name" required>
+        <input type="text" placeholder="Account Number" maxlength="20" required>
+        <input type="text" placeholder="Bank Name" required>
+        <input type="text" placeholder="Branch Code" maxlength="6" required>
+        `
+    );
+    });
+
+    // Show modal with content
+    function showModal(header, content) {
+    modalHeader.innerText = header;
+    modalContent.innerHTML = content;
+    modal.classList.remove("hidden");
+    }
+
+    // Cancel payment modal
+    document.getElementById("cancel-payment").addEventListener("click", () => {
+    modal.classList.add("hidden");
+    });
+
+    // Confirm payment
+    document.getElementById("confirm-payment").addEventListener("click", () => {
+    alert("Payment Successful! Invoice will be emailed shortly.");
+    generateInvoice(); // Call the invoice generation function
+    modal.classList.add("hidden");
+    });
+
+    // Generate Invoice
+    function generateInvoice() {
+    const invoiceDetails = `
+        <h3>Payment Confirmation</h3>
+        <p>Transaction ID: ${Math.random().toString(36).substring(2, 15).toUpperCase()}</p>
+        <p>Amount Paid: LKR 5500</p>
+        <p>Payment Method: Selected Method</p>
+        <p>Date: ${new Date().toLocaleDateString()}</p>
+    `;
+    const newWindow = window.open("", "_blank");
+    newWindow.document.write(invoiceDetails);
+    newWindow.print();
+    }
+</script>
+</body>
+</html>
+
+
+  
+
+
+        

@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h2 {
+    color: #003366; /* Gas Blue */
+}
+
+/* Form Styles */
+form {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Input and Select Fields */
+.form-control, .form-select {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #00509e; /* Lighter Blue */
+    box-shadow: 0 0 5px rgba(0, 80, 158, 0.5);
+}
+
+/* Badge Styles */
+.badge-success {
+    background-color: #28a745; /* Green */
+    font-size: 1rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.5rem;
+}
+
+/* File Upload */
+#certificationUpload {
+    border: 1px dashed #ddd;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#certificationUpload:hover {
+    background-color: #f1f1f1;
+    border-color: #00509e; /* Lighter Blue */
+}
+
+/* Button */
+.btn-primary {
+    background-color: #003366; /* Gas Blue */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00509e; /* Lighter Blue */
+    transform: scale(1.02);
+}

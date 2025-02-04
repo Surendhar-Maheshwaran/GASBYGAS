@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="css/notification.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Notifications</h1>
+        
+        <!-- Notification Filters -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <button id="allButton" class="btn btn-primary active me-2" onclick="filterNotifications('all')">All</button>
+                <button id="unreadButton" class="btn btn-outline-primary me-2" onclick="filterNotifications('unread')">Unread</button>
+                <button id="readButton" class="btn btn-outline-primary" onclick="filterNotifications('read')">Read</button>
+            </div>
+            <div class="d-flex align-items-center">
+                <input type="text" id="search" class="form-control me-2" placeholder="Search notifications..." oninput="searchNotifications()">
+                <img class="search-icon" src="images/search.png" alt="Search Icon">
+            </div>
+        </div>
+    
+        <!-- Notification List -->
+        <div id="notification">
+            <table id="notificationTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Notification ID</th>
+                        <th>Message</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                        <th>Sent At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically loaded notifications will appear here -->
+                </tbody>
+            </table>
+            <p id="noNotificationsMessage" class="text-center">No notifications</p>
+        </div>
+    
+        <!-- Notification Preferences -->
+        <div class="preferences mt-5 p-4 shadow bg-light rounded">
+            <h3 class="mb-3">Notification Preferences</h3>
+            <div class="form-check mb-2">
+                <input type="checkbox" id="enableSMS" class="form-check-input" checked>
+                <label for="enableSMS" class="form-check-label">Enable SMS Notifications</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="enableEmail" class="form-check-input" checked>
+                <label for="enableEmail" class="form-check-label">Enable Email Notifications</label>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+
+
+

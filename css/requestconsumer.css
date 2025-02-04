@@ -1,0 +1,84 @@
+/* Gas Theme Colors */
+:root {
+    --gas-blue: #0077b6;
+    --flame-orange: #ff6f00;
+    --dark-charcoal: #333333;
+    --gas-yellow: #ffcc00;
+    --light-gray: #f8f9fa;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--light-gray);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form Styling */
+form {
+    animation: fadeIn 1s ease-in-out;
+}
+
+form h1 {
+    color: var(--gas-blue);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--gas-blue);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--flame-orange);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--dark-charcoal);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--flame-orange);
+}
+
+.btn-warning {
+    background-color: var(--gas-yellow);
+    color: black;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: var(--flame-orange);
+    color: white;
+}
+
+/* Spinner Animation */
+.spinner-border {
+    border: 4px solid var(--light-gray);
+    border-top: 4px solid var(--flame-orange);
+    width: 3rem;
+    height: 3rem;
+    animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

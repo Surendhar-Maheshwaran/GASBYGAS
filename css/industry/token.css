@@ -1,0 +1,17 @@
+/* Notification Panel */
+.notification-panel {
+    border-left: 5px solid #007bff;
+    padding-left: 15px;
+}
+
+/* Table Row Hover */
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 12px;
+}

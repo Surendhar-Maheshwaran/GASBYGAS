@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Log</title>
+    <link rel="stylesheet" href="../css/Distribution/communication.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-primary mb-4">Communication Log</h2>
+    
+        <!-- Stats Section -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-center shadow stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Notifications Sent</h5>
+                        <p class="card-text fs-4 fw-bold">120</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Emails Sent</h5>
+                        <p class="card-text fs-4 fw-bold">80</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center shadow stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title">SMS Sent</h5>
+                        <p class="card-text fs-4 fw-bold">40</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Actions Section -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="input-group w-50">
+                <input type="text" id="search" class="form-control" placeholder="Search by Customer Name or Token">
+            </div>
+            <div class="ms-3">
+                <select id="filter-type" class="form-select">
+                    <option value="">Filter by Notification Type</option>
+                    <option value="Email">Email</option>
+                    <option value="SMS">SMS</option>
+                </select>
+            </div>
+            <button class="btn btn-primary ms-3" onclick="exportLog()">
+                <i class="bi bi-download"></i> Export
+            </button>
+        </div>
+    
+        <!-- Table Section -->
+        <div class="table-responsive">
+            <table class="table table-hover table-striped shadow">
+                <thead class="table-dark">
+                    <tr>
+                        <th onclick="sortTable(0)">Notification Type</th>
+                        <th onclick="sortTable(1)">Date Sent</th>
+                        <th onclick="sortTable(2)">Customer Name</th>
+                        <th onclick="sortTable(3)">Token Number</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="log-table">
+                    <tr class="animate__animated animate__fadeIn" onclick="showDetails('John Doe', 'TOKEN-001', 5, '2025-01-20', '2025-01-18', 'Paid')">
+                        <td>Email</td>
+                        <td>2025-01-18</td>
+                        <td>John Doe</td>
+                        <td>TOKEN-001</td>
+                        <td>Order confirmation message</td>
+                    </tr>
+                    <tr class="animate__animated animate__fadeIn" onclick="showDetails('Jane Smith', 'TOKEN-002', 3, '2025-01-22', '2025-01-19', 'Unpaid')">
+                        <td>SMS</td>
+                        <td>2025-01-19</td>
+                        <td>Jane Smith</td>
+                        <td>TOKEN-002</td>
+                        <td>Order dispatched message</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Popup -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">Notification Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Customer Name:</strong> <span id="detail-customer"></span></p>
+                    <p><strong>Ordered:</strong> <span id="detail-token"></span></p>
+                    <p><strong>Quantity:</strong> <span id="detail-quantity"></span></p>
+                    <p><strong>Pickup Date:</strong> <span id="detail-pickup"></span></p>
+                    <p><strong>Sent On:</strong> <span id="detail-sent"></span></p>
+                    <p><strong>Payment:</strong> <span id="detail-payment"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+        function showDetails(customer, token, gasType, quantity, pickupDate, sentDate, payment) {
+            document.getElementById('detail-customer').innerText = customer;
+            document.getElementById('detail-token').innerText = token;
+            document.getElementById('detail-quantity').innerText = quantity;
+            document.getElementById('detail-pickup').innerText = pickupDate;
+            document.getElementById('detail-sent').innerText = sentDate;
+            document.getElementById('detail-payment').innerText = payment;
+
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function exportLog() {
+            alert("Export to CSV functionality is under development.");
+        }
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById("log-table");
+            const rows = Array.from(table.rows);
+            rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].textContent.trim();
+                const bText = b.cells[columnIndex].textContent.trim();
+                return aText.localeCompare(bText);
+            });
+            table.innerHTML = "";
+            rows.forEach(row => table.appendChild(row));
+            function showDetails(customer, token, quantity, pickupDate, sentDate, payment) {
+    document.getElementById('detail-customer').innerText = customer;
+    document.getElementById('detail-token').innerText = token;
+    document.getElementById('detail-quantity').innerText = quantity;
+    document.getElementById('detail-pickup').innerText = pickupDate;
+    document.getElementById('detail-sent').innerText = sentDate;
+    document.getElementById('detail-payment').innerText = payment;
+
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Scheduling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.8em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #e53935;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-group input, .form-group select, .form-group button {
+      width: 80%;
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-group input, .form-group select {
+      color: #333;
+    }
+
+    .form-group button {
+      background-color: #e53935;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .form-group button:hover {
+      background-color: #c62828;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      padding: 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #333;
+      color: white;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: white;
+    }
+
+    .badge.pending {
+      background-color: #ef0b0b;
+    }
+
+    .badge.in-transit {
+      background-color: #7e8081;
+    }
+
+    .badge.delivered {
+      background-color: #db0909;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-buttons button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+      color: white;
+      font-weight: bold;
+    }
+
+    .action-buttons .mark {
+      background-color: #d18b8b;
+    }
+
+    .action-buttons .reschedule {
+      background-color: #c9c0c0;
+    }
+
+    .action-buttons button:hover {
+      opacity: 0.9;
+    }
+    .full-width {
+  flex: 1 1 100%;
+}
+
+textarea {
+  width: 80%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+button#preview-button {
+  background-color: #e53935;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button#send-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button#preview-button:hover {
+  background-color: #c62828;
+}
+
+button#send-button:hover {
+  background-color: #388e3c;
+}
+.calendar-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width:40%;
+  margin:0 auto;
+}
+
+.calendar-section {
+  width: 48%; /* Same width as the notify section */
+}
+#calendar {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+button {
+  margin-top: 10px;
+}
+
+button#preview-button {
+  background-color: #e53935;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button#send-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button#preview-button:hover {
+  background-color: #c62828;
+}
+
+button#send-button:hover {
+  background-color: #388e3c;
+}
+
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section-header">Create/Update Delivery Schedules</div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="outlet">Outlet</label>
+            <select id="outlet">
+                <option value="">Select Outlet</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="delivery-date">Delivery Date</label>
+            <input type="date" id="delivery-date">
+        </div>
+        <div class="form-group">
+          <label for="gas-name">Gas Name</label>
+          <select id="gas-name">
+              <option value="">Select Gas</option>
+          </select>
+      </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" placeholder="Enter quantity">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <button class= "btn btn-primary" id="add-to-table">Add to Table</button>
+    </div>
+
+    <table id="schedule-table">
+        <thead>
+            <tr>
+                <th>Outlet</th>
+                <th>Delivery Date</th>
+                <th>Gas Type</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Entries will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <div class="form-row">
+        <button class= "btn btn-primary" id="create-schedule">Create Schedule</button>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="section-header">Scheduled Deliveries</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Outlet Name</th>
+          <th>Delivery Date</th>
+          <th>Quantity</th>
+          <th>Schedule Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="schedule-table-body">
+      </tbody>
+    </table>
+  </div>
+  <script type="module" src="../script/distribution/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="css/register.css">
+<body>
+    <div id="outletForm" class="col-12 col-md-8 form active">
+        <h3 class="text-center mb-4">Outlet Registration</h3>
+        <form>
+            <div class="mb-3">
+                <label for="outletName" class="form-label">Outlet Name</label>
+                <input type="text" id="outletName" class="form-control" placeholder="Enter outlet name" required>
+            </div>
+            <div class="mb-3">
+                <label for="outletAddress" class="form-label">Address</label>
+                <input type="text" id="outletAddress" class="form-control" placeholder="Enter address" required>
+            </div>
+            <div class="mb-3">
+                <label for="outletDistrict" class="form-label">District</label>
+                <input type="text" id="outletDistrict" class="form-control" placeholder="Enter district" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="outletPhoneNo" class="form-label">Phone Number</label>
+                    <input type="tel" id="outletPhoneNo" class="form-control" placeholder="Enter phone number" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="managerName" class="form-label">Outlet Manager Name</label>
+                    <input type="text" id="managerName" class="form-control" placeholder="Enter manager name" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+            </div>
+            <button type="button" id="btnOutletRegister" class="btn btn-primary w-100">Register</button>
+        </form>
+    </div>
+    <script type="module" src="./script/register.js"></script>
+</body>

@@ -1,0 +1,156 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request - Gas by Gas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/requestconsumer.css">
+</head>
+<div class="container py-5">
+    <h1 class="text-center mb-4">Gas Request Form</h1>
+    <form id="gasRequestForm" class="p-4 shadow rounded bg-light">
+        <!-- Registered Outlet -->
+        <div class="mb-3">
+            <label for="outlet" class="form-label">Registered Outlet</label>
+            <select id="outlet" name="outlet" class="form-select" required>
+                <option value="">Select Nearest Outlet</option>
+            </select>
+        </div>
+
+        <!-- Gas Cylinder Type -->
+        <div class="mb-3">
+            <label for="cylinderType" class="form-label">Gas Cylinder Type/Size</label>
+            <select id="cylinderType" name="cylinderType" class="form-select" required>
+                <option value="">Select Cylinder Type</option>
+                <!-- Gas Available are loaded dynamically -->
+            </select>
+        </div>
+
+        <!-- Quantity -->
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" id="quantity" name="quantity" class="form-control" min="1" max="5" placeholder="Enter quantity (max 5)" required>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-check mb-3">
+            <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+            <label for="terms" class="form-check-label">I agree to the reallocation policy</label>
+        </div>
+
+        <!-- Availability Check -->
+        <div class="mb-3 text-center">
+            <button type="button" id="checkAvailability" class="btn btn-warning px-4">Check Availability</button>
+            <p class="text-danger mt-2" id="availabilityError"></p>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary px-4" id="btnRequest">Submit</button>
+            <button type="reset" class="btn btn-secondary px-4">Cancel</button>
+        </div>
+
+        <!-- Request Summary -->
+        <div id="requestSummary" class="mt-4" style="display: none;">
+            <h2>Request Summary</h2>
+            <p id="summaryDetails"></p>
+            <button class="btn btn-success" onclick="printToken()">Print Token</button>
+        </div>
+    </form>
+</div>
+<script type="module" src="script/GasRequest.js"></script>
+
+<!-- <script>
+    //logout
+    const logoutBtn = document.getElementById('logout-btn');
+    const logoutModal = document.getElementById('logout-modal');
+    const cancelLogout = document.getElementById('cancel-logout');
+    const confirmLogout = document.getElementById('confirm-logout');
+
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        logoutModal.classList.add('active');
+    });
+
+    cancelLogout.addEventListener('click', () => {
+        logoutModal.classList.remove('active');
+    });
+
+    confirmLogout.addEventListener('click', () => {
+        alert('You have been logged out.');
+        window.location.href = 'login.html'; // Replace with the actual login page URL
+    });
+        
+    const form = document.getElementById('gasRequestForm');
+    const availabilityError = document.getElementById('availabilityError');
+    const summaryDetails = document.getElementById('summaryDetails');
+    const requestSummary = document.getElementById('requestSummary');
+
+    const cylinderPrices = {
+        '5kg': 1500,
+        '12.5kg': 3000,
+        '37.5kg': 8500
+    };
+
+    document.getElementById('checkAvailability').addEventListener('click', function () {
+        const outlet = document.getElementById('outlet').value;
+        const pickupDate = document.getElementById('pickupDate').value;
+
+        if (!outlet || !pickupDate) {
+            availabilityError.textContent = 'Please select an outlet and pickup date.';
+            return;
+        }
+
+        // Simulate stock checking logic
+        if (outlet === 'Outlet 1 - Colombo' && pickupDate) {
+            availabilityError.textContent = '';
+            alert('Stock available! Proceed with your request.');
+        } else {
+            availabilityError.textContent = 'Stock unavailable for the selected date and outlet.';
+        }
+    });
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const outlet = document.getElementById('outlet').value;
+        const cylinderType = document.getElementById('cylinderType').value;
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const pickupDate = document.getElementById('pickupDate').value;
+
+        if (!outlet || !cylinderType || !quantity || !pickupDate) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const tokenNumber = 'GAS-' + Math.floor(100000 + Math.random() * 900000);
+        const startDate = new Date(pickupDate);
+        const endDate = new Date(pickupDate);
+        endDate.setDate(endDate.getDate() + 14);
+
+        const totalAmount = cylinderPrices[cylinderType] * quantity;
+
+        summaryDetails.innerHTML = `
+            <strong>Token Number:</strong> ${tokenNumber}<br>
+            <strong>Outlet:</strong> ${outlet}<br>
+            <strong>Cylinder Type:</strong> ${cylinderType}<br>
+            <strong>Quantity:</strong> ${quantity}<br>
+            <strong>Pickup Date:</strong> ${pickupDate}<br>
+            <strong>Estimated Delivery Period:</strong> ${startDate.toDateString()} - ${endDate.toDateString()}<br>
+            <strong>Total Amount:</strong> Rs. ${totalAmount}
+        `;
+
+        requestSummary.style.display = 'block';
+        alert(`Request Submitted! Your Token ID is: ${tokenNumber}`);
+
+        form.reset();
+    });
+
+    // Print token
+    function printToken() {
+    window.print();
+}
+</script> -->
+
+</body>
+</html>

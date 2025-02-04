@@ -1,0 +1,74 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Section Header */
+h2 {
+    color: #003366; /* Gas Blue */
+}
+
+/* Table Styles */
+.table {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.table th {
+    background-color: #002233; /* Dark Charcoal */
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+.status-pending {
+    background-color: #ffc107; /* Gas Yellow */
+}
+.status-completed {
+    background-color: #28a745; /* Green */
+}
+.status-cancelled {
+    background-color: #dc3545; /* Red */
+}
+
+/* Action Buttons */
+.action-btn {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.action-btn:hover {
+    transform: scale(1.05);
+}
+.btn-edit {
+    background-color: #007bff; /* Blue */
+}
+.btn-delete {
+    background-color: #dc3545; /* Red */
+}
+.btn-view {
+    background-color: #28a745; /* Green */
+}
